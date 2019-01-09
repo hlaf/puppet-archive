@@ -43,20 +43,20 @@
 # }
 #
 define archive::artifactory (
-  String                                  $path         = $name,
-  Enum['present', 'absent']               $ensure       = present,
-  Optional[Pattern[/^https?:\/\//]]       $url          = undef,
-  Optional[String]                        $server       = undef,
-  Optional[Integer]                       $port         = undef,
-  Optional[String]                        $url_path     = undef,
-  Optional[String]                        $owner        = undef,
-  Optional[String]                        $group        = undef,
-  Optional[String]                        $mode         = undef,
-  Optional[Boolean]                       $extract      = undef,
-  Optional[String]                        $extract_path = undef,
-  Optional[String]                        $creates      = undef,
-  Optional[Boolean]                       $cleanup      = undef,
-  Optional[Stdlib::Compat::Absolute_path] $archive_path = undef,
+  $path         = $name,
+  $ensure       = present,
+  $url          = undef,
+  $server       = undef,
+  $port         = undef,
+  $url_path     = undef,
+  $owner        = undef,
+  $group        = undef,
+  $mode         = undef,
+  $extract      = undef,
+  $extract_path = undef,
+  $creates      = undef,
+  $cleanup      = undef,
+  $archive_path = undef,
 ) {
 
   include ::archive::params
