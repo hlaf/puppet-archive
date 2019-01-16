@@ -164,7 +164,12 @@ Puppet::Type.type(:archive).provide(:ruby) do
     if resource[:temp_dir] && !File.directory?(resource[:temp_dir])
       raise Puppet::Error, "Temporary directory #{resource[:temp_dir]} doesn't exist"
     end
-    tempfile = Tempfile.new(tempfile_name, resource[:temp_dir])
+
+    if resource[:temp_dir]
+      tempfile = Tempfile.new(tempfile_name, resource[:temp_dir])
+    else
+      tempfile = Tempfile.new(tempfile_name)
+    end 
 
     temppath = tempfile.path
     tempfile.close!
